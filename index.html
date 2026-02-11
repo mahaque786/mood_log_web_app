@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Tracking - Daily Check-in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Mental Health Daily Check-in</h1>
+            <p class="subtitle">Track your symptoms and wellbeing</p>
+        </header>
+
+        <form id="moodForm">
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Section A: Depression & Anxiety (PHQ-4) -->
+            <div class="section">
+                <h2>Section A: Mood & Anxiety</h2>
+                <p class="section-description">Over the last 2 weeks, how often have you been bothered by the following?</p>
+                <p class="scale-info">0 = Not at all | 1 = Several days | 2 = More than half the days | 3 = Nearly every day</p>
+                
+                <div class="form-group">
+                    <label for="a1_depressed">A1. Feeling down, depressed, or hopeless?</label>
+                    <div class="scale-selector">
+                        <label><input type="radio" name="a1_depressed" value="0" required> 0</label>
+                        <label><input type="radio" name="a1_depressed" value="1"> 1</label>
+                        <label><input type="radio" name="a1_depressed" value="2"> 2</label>
+                        <label><input type="radio" name="a1_depressed" value="3"> 3</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="a2_interest">A2. Little interest or pleasure in doing things?</label>
+                    <div class="scale-selector">
+                        <label><input type="radio" name="a2_interest" value="0" required> 0</label>
+                        <label><input type="radio" name="a2_interest" value="1"> 1</label>
+                        <label><input type="radio" name="a2_interest" value="2"> 2</label>
+                        <label><input type="radio" name="a2_interest" value="3"> 3</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="a3_anxious">A3. Feeling nervous, anxious, or on edge?</label>
+                    <div class="scale-selector">
+                        <label><input type="radio" name="a3_anxious" value="0" required> 0</label>
+                        <label><input type="radio" name="a3_anxious" value="1"> 1</label>
+                        <label><input type="radio" name="a3_anxious" value="2"> 2</label>
+                        <label><input type="radio" name="a3_anxious" value="3"> 3</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="a4_worry">A4. Not being able to stop or control worrying?</label>
+                    <div class="scale-selector">
+                        <label><input type="radio" name="a4_worry" value="0" required> 0</label>
+                        <label><input type="radio" name="a4_worry" value="1"> 1</label>
+                        <label><input type="radio" name="a4_worry" value="2"> 2</label>
+                        <label><input type="radio" name="a4_worry" value="3"> 3</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B: Executive Function (ADHD) -->
+            <div class="section">
+                <h2>Section B: Focus & Function</h2>
+                <p class="section-description">Rate your experience today:</p>
+                <p class="scale-info">0 = No difficulty | 10 = Extreme difficulty</p>
+                
+                <div class="form-group">
+                    <label for="b5_focus">B5. Difficulty maintaining focus/concentration:</label>
+                    <input type="range" id="b5_focus" name="b5_focus" min="0" max="10" value="5" required>
+                    <span id="b5_focus_value">5</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="b6_task_start">B6. Difficulty starting tasks (initiation):</label>
+                    <input type="range" id="b6_task_start" name="b6_task_start" min="0" max="10" value="5" required>
+                    <span id="b6_task_start_value">5</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="b7_function">B7. Overall functional impairment:</label>
+                    <input type="range" id="b7_function" name="b7_function" min="0" max="10" value="5" required>
+                    <span id="b7_function_value">5</span>
+                </div>
+            </div>
+
+            <!-- Section C: Sleep & Energy -->
+            <div class="section">
+                <h2>Section C: Sleep & Energy</h2>
+                
+                <div class="form-group">
+                    <label for="c8_sleep_hrs">C8. Hours of sleep last night:</label>
+                    <input type="number" id="c8_sleep_hrs" name="c8_sleep_hrs" min="0" max="24" step="0.5" placeholder="7.5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="c9_sleep_qual">C9. Sleep quality:</label>
+                    <p class="scale-info">0 = Terrible | 10 = Excellent</p>
+                    <input type="range" id="c9_sleep_qual" name="c9_sleep_qual" min="0" max="10" value="5" required>
+                    <span id="c9_sleep_qual_value">5</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="c10_energy">C10. Energy level today:</label>
+                    <p class="scale-info">0 = Exhausted | 10 = Very energetic</p>
+                    <input type="range" id="c10_energy" name="c10_energy" min="0" max="10" value="5" required>
+                    <span id="c10_energy_value">5</span>
+                </div>
+            </div>
+
+            <!-- Section D: ASRM (Mania) -->
+            <div class="section">
+                <h2>Section D: Elevated Mood (ASRM)</h2>
+                <p class="section-description">Have you experienced any of the following?</p>
+                <p class="scale-info">0 = Not at all | 10 = Extremely</p>
+                
+                <div class="form-group">
+                    <label for="d11_wired">D11. Feeling "wired," hyper, or overly energetic:</label>
+                    <input type="range" id="d11_wired" name="d11_wired" min="0" max="10" value="0" required>
+                    <span id="d11_wired_value">0</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="d12_less_sleep">D12. Need less sleep than usual (without feeling tired):</label>
+                    <input type="range" id="d12_less_sleep" name="d12_less_sleep" min="0" max="10" value="0" required>
+                    <span id="d12_less_sleep_value">0</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="d_asrm_total">D ASRM Total Score (optional, for clinician use):</label>
+                    <input type="number" id="d_asrm_total" name="d_asrm_total" min="0" max="20" placeholder="0-20">
+                </div>
+            </div>
+
+            <!-- Section E: Side Effects -->
+            <div class="section">
+                <h2>Section E: Medication Side Effects</h2>
+                <p class="section-description">If you're taking medication, rate any side effects:</p>
+                <p class="scale-info">0 = None | 6 = Severe</p>
+                
+                <div class="form-group">
+                    <label for="e13_se_freq">E13. Frequency of side effects:</label>
+                    <input type="range" id="e13_se_freq" name="e13_se_freq" min="0" max="6" value="0" required>
+                    <span id="e13_se_freq_value">0</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="e14_se_intensity">E14. Intensity/severity of side effects:</label>
+                    <input type="range" id="e14_se_intensity" name="e14_se_intensity" min="0" max="6" value="0" required>
+                    <span id="e14_se_intensity_value">0</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="e15_se_burden">E15. Overall burden of side effects:</label>
+                    <input type="range" id="e15_se_burden" name="e15_se_burden" min="0" max="6" value="0" required>
+                    <span id="e15_se_burden_value">0</span>
+                </div>
+            </div>
+
+            <!-- Section F: Safety -->
+            <div class="section">
+                <h2>Section F: Safety</h2>
+                <p class="section-description">Have you had thoughts of hurting yourself or others?</p>
+                <p class="scale-info">0 = Not at all | 3 = Very much/Frequently</p>
+                
+                <div class="form-group">
+                    <label for="f16_safety">F16. Thoughts of self-harm or harm to others:</label>
+                    <div class="scale-selector safety-scale">
+                        <label><input type="radio" name="f16_safety" value="0" required> 0 - Not at all</label>
+                        <label><input type="radio" name="f16_safety" value="1"> 1 - A little</label>
+                        <label><input type="radio" name="f16_safety" value="2"> 2 - Moderate</label>
+                        <label><input type="radio" name="f16_safety" value="3"> 3 - Frequently</label>
+                    </div>
+                    <div role="alert" class="safety-warning">⚠️ If you're experiencing thoughts of self-harm, please contact a mental health professional or crisis hotline immediately. US: 988 Suicide & Crisis Lifeline</div>
+                </div>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="section">
+                <h2>Notes & Triggers</h2>
+                <div class="form-group">
+                    <label for="notes">Additional notes, triggers, or observations:</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Any notable events, triggers, medication changes, or observations..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Daily Check-in</button>
+        </form>
+
+        <div id="message" class="message"></div>
+
+        <footer>
+            <p class="info-text">
+                📊 Your data is stored securely in your personal Google Sheet for tracking and clinical use.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
