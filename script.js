@@ -27,11 +27,14 @@ function setupRangeInput(inputId) {
     const input = document.getElementById(inputId);
     const valueDisplay = document.getElementById(inputId + '_value');
     
-    if (input && valueDisplay) {
-        input.addEventListener('input', function() {
-            valueDisplay.textContent = this.value;
-        });
+    if (!input || !valueDisplay) {
+        console.warn(`Range input setup failed: Could not find elements for "${inputId}"`);
+        return;
     }
+    
+    input.addEventListener('input', function() {
+        valueDisplay.textContent = this.value;
+    });
 }
 
 async function handleSubmit(event) {

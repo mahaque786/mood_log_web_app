@@ -1,5 +1,7 @@
 # Mental Health Tracking Web App 🧠
 
+> **⚠️ IMPORTANT DISCLAIMER**: This application is for symptom tracking purposes only and does NOT replace professional medical advice, diagnosis, or treatment. Always consult with a qualified mental health professional for clinical decisions. If you're experiencing a mental health crisis, contact emergency services or a crisis hotline immediately (US: 988 Suicide & Crisis Lifeline).
+
 A clinical-grade web application for daily mental health symptom tracking. Built with vanilla HTML, CSS, and JavaScript, and designed to work with Google Sheets for data storage via Google Apps Script.
 
 ## Features
