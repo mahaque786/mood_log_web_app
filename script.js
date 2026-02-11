@@ -98,15 +98,16 @@ async function sendToGoogleSheets(data) {
 
     const response = await fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // Required for Google Apps Script
+        mode: 'no-cors', // Required for Google Apps Script cross-origin requests
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(data)
     });
 
-    // Note: With no-cors mode, we can't read the response
-    // We assume success if no error is thrown
+    // Note: With no-cors mode, we cannot read the response body
+    // Google Apps Script returns JSON with success/error status, but it's not accessible
+    // We assume success if no error is thrown during the fetch operation
     return response;
 }
 

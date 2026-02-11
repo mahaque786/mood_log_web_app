@@ -51,6 +51,7 @@ function setupSheet() {
   
   // Check if headers already exist
   if (sheet.getRange(1, 1).getValue() !== '') {
+    // Browser.msgBox with YES_NO buttons returns 'yes' or 'no' as lowercase strings
     var response = Browser.msgBox(
       'Headers Already Exist',
       'The sheet already has data in the first row. Do you want to replace it?',

@@ -110,10 +110,8 @@ header h1 {
     color: #667eea;
 }
 
-.mood-option input[type="radio"]:checked {
-    & ~ * {
-        font-weight: bold;
-    }
+.mood-option input[type="radio"]:checked ~ span {
+    font-weight: bold;
 }
 
 .mood-option:has(input[type="radio"]:checked) {
